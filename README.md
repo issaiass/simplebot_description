@@ -8,6 +8,12 @@ simplebot_description is in charge to launch in rviz and gazebo the fusion 360 u
 
 Below and examples of the outcome
 
+### <b>Simplebot Teleoperation</b>
+<p align="center">
+<img src = "doc/gif/simplebot_gazebo_ros2.gif?raw=true" center=true width="85%"/>
+</p>
+
+
 ### <b>Simplebot Gazebo</b>
 <p align="center">
 <img src = "doc/imgs/simplebot_gazebo_view.PNG?raw=true" center=true width="85%"/>
@@ -30,6 +36,7 @@ Below and examples of the outcome
 <summary> <b>Using the Package<b></summary>
 
 - Follow the next steps to replicate the outcome
+- On the first terminal
 ~~~
     cd ~/ros2_ws/src
     git clone https://github.com/issaiass/simplebot_description.git
@@ -38,10 +45,23 @@ Below and examples of the outcome
     ros2 launch simplebot_description display.launch.py
 ~~~
 
+- On the second terminal
+~~~
+    ros2 run teleop_twist_keyboard teleop_twist_keyboard
+~~~
+
+- Press the keys suggested to move the robot
+- put an object in front of the robot
+- view the rviz2 window, you will find the lidar points in red.
+
 <details open>
 <summary> <b>Results<b></summary>
 
-We will made a youtube video later
+Last video update - Simplebot Teleoperation
+
+[<img src= "https://img.youtube.com/vi/-lZ4t5rnFIk/0.jpg" />](https://youtu.be/-lZ4t5rnFIk)
+
+
 
 <p align="center"> </p>
 </details>
@@ -52,6 +72,7 @@ We will made a youtube video later
 <summary> <b>Issues<b></summary>
 
 - No issues encountered right now, but probably the caster_joint is not at the position desired, is not a problem.
+- If the robot slips over time you need to change mu1 and mu2 over the .gazebo file in urdf folder
 
 </details>
 

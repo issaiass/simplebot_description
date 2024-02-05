@@ -83,24 +83,26 @@
   <gravity>true</gravity>
 </gazebo>
 
+<!-- high mu1 and/or mu2 is interpreted as less fricction, lower the less friction -->
+
 <gazebo reference="right_wheel_1">
   <material>${wheel_color}</material>
-  <mu1>1</mu1> <!-- changed here from 0.2 to 1 for more smooth movement -->
-  <mu2>1</mu2> <!-- changed here from 0.2 to 1 for more smooth movement -->
+  <mu1>1</mu1> <!-- change this friction parameters to improve simulation -->
+  <mu2>1</mu2> <!-- change this friction parameters to improve simulation -->
   <self_collide>true</self_collide>
 </gazebo>
 
 <gazebo reference="left_wheel_1">
   <material>${wheel_color}</material>
-  <mu1>1</mu1> <!-- changed here from 0.2 to 1 for more smooth movement -->
-  <mu2>1</mu2> <!-- changed here from 0.2 to 1 for more smooth movement -->
+  <mu1>1</mu1> <!-- change this friction parameters to improve simulation -->
+  <mu2>1</mu2> <!-- change this friction parameters to improve simulation -->
   <self_collide>true</self_collide>
 </gazebo>
 
 <gazebo reference="caster_wheel_1">
   <material>${body_color}</material>
-  <mu1>0.02</mu1> <!-- changed here from 0.2 to 0.02 for more smooth movement -->
-  <mu2>0.02</mu2> <!-- changed here from 0.2 to 0.02 for more smooth movement -->
+  <mu1>0.02</mu1> <!-- change this friction parameters to improve simulation -->
+  <mu2>0.02</mu2> <!-- change this friction parameters to improve simulation -->
   <self_collide>true</self_collide>
 </gazebo>
 
