@@ -10,7 +10,9 @@ from launch_ros.descriptions import ParameterValue
 
 def generate_launch_description():
     pkg_share = launch_ros.substitutions.FindPackageShare(package='simplebot_description').find('simplebot_description')
-    print(pkg_share)
+    
+    world_path = os.path.join(pkg_share, 'worlds/custom_world.world')
+    
     default_model_path = os.path.join(pkg_share, 'models/urdf/simplebot.xacro')
     default_rviz_config_path = os.path.join(pkg_share, 'rviz/sensors.rviz')
     
@@ -40,7 +42,7 @@ def generate_launch_description():
     condition= IfCondition(use_sim_time),
     package='gazebo_ros',
     executable='spawn_entity.py',
-    arguments=['-entity', 'rmp41_bot', '-topic', 'robot_description'],
+    arguments=['-entity', 'simplebot', '-topic', 'robot_description'],
     parameters= [{'use_sim_time': use_sim_time}],
     output='screen'
     
@@ -57,7 +59,7 @@ def generate_launch_description():
                                             description='Absolute path to rviz config file'),
 
         launch.actions.ExecuteProcess(condition= IfCondition(use_sim_time),cmd=['gazebo', '--verbose', '-s', 
-                                            'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so'], 
+                                            'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so', world_path], 
                                             output='screen'),
 
 

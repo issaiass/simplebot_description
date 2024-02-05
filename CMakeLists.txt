@@ -11,7 +11,7 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 install(
-  DIRECTORY launch models rviz 
+  DIRECTORY launch models rviz worlds
   DESTINATION share/${PROJECT_NAME}
 )
 
