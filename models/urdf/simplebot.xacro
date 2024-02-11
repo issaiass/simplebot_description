@@ -90,6 +90,8 @@
   </collision>
 </link>
 
+<link name="camera"></link>
+
 <link name="lidar_1">
   <inertial>
     <origin xyz="5.026061718855929e-18 0.0 0.0049999999999999906" rpy="0 0 0"/>
@@ -129,6 +131,12 @@
   <origin xyz="0.1 0.0 0.0175" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="caster_wheel_1"/>
+</joint>
+
+<joint name="camera_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.08" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera"/>
 </joint>
 
 <joint name="lidar_joint" type="fixed">

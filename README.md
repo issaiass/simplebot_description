@@ -6,7 +6,13 @@
 
 simplebot_description is in charge to launch in rviz and gazebo the fusion 360 urdf exported model.
 
-Below and examples of the outcome
+Now, with Google Cartographer, we can navigate and build the map of the room in this case, 2D.
+
+### <b>Simplebot Google Cartographer</b>
+<p align="center">
+<img src = "doc/gif/simplebot_cartographer.gif?raw=true" center=true width="85%"/>
+</p>
+
 
 ### <b>Simplebot Teleoperation</b>
 <p align="center">
@@ -40,12 +46,20 @@ Below and examples of the outcome
 ~~~
     cd ~/ros2_ws/src
     git clone https://github.com/issaiass/simplebot_description.git
+    git clone https://github.com/issaiass/simplebot_slam.git    
     cd ~/ros2_ws
-    colcon build --packages-select simplebot_description
+    colcon build --packages-select simplebot_description simplebot_slam
     ros2 launch simplebot_description display.launch.py
 ~~~
 
 - On the second terminal
+~~~
+    ros2 launch simplebot_slam cartographer.launch.py
+~~~
+
+- If not selected, select the odom frame
+
+- On the third terminal
 ~~~
     ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ~~~
@@ -57,11 +71,11 @@ Below and examples of the outcome
 <details open>
 <summary> <b>Results<b></summary>
 
-Last video update - Simplebot Teleoperation
+Last video update - Simplebot Cartographer
 
-[<img src= "https://img.youtube.com/vi/-lZ4t5rnFIk/0.jpg" />](https://youtu.be/-lZ4t5rnFIk)
+[<img src= "https://img.youtube.com/vi/yC8pVZDEJEQ/0.jpg" />](https://youtu.be/yC8pVZDEJEQ)
 
-
+[Simplebot Teleoperation](https://youtu.be/-lZ4t5rnFIk)
 
 <p align="center"> </p>
 </details>

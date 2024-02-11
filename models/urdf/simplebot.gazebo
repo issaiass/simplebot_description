@@ -28,14 +28,54 @@
 
     <!-- output -->
     <publish_odom>true</publish_odom>
-    <publish_odom_tf>true</publish_odom_tf>
-    <publish_wheel_tf>false</publish_wheel_tf>
+    <!--publish_odom_tf>true</publish_odom_tf-->
+    <!--publish_wheel_tf>true</publish_wheel_tf-->
 
     <odometry_frame>odom</odometry_frame>
     <robot_base_frame>base_link</robot_base_frame>
 </plugin>
 </gazebo>
 <!-- End of Differential drive plugin for gazebo -->
+
+<!-- start of camera plugin -->
+  <!--gazebo reference="camera">
+    <sensor type="camera" name="camera">
+      <update_rate>30</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo-->
+<!-- end of camera plugin -->
+
 
 <!-- Laser Scan Plugin for Gazebo -->
 <gazebo reference="lidar_1">
@@ -53,8 +93,8 @@
 	  </horizontal>
 	</scan>
 	<range>
-	  <min>0.05</min> <!-- distances of the laser in m -->
-	  <max>10.0</max>
+	  <min>0.1</min> <!-- distances of the laser in m -->
+	  <max>12.0</max>
 	  <resolution>0.015000</resolution>
 	</range>
 	  <noise>

@@ -8,8 +8,9 @@ Panels:
         - /Status1
         - /Image1
         - /Image1/Topic1
+        - /Map1
       Splitter Ratio: 0.5
-    Tree Height: 464
+    Tree Height: 523
 Visualization Manager:
   Class: ""
   Displays:
@@ -58,47 +59,29 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        caster:
+        caster_wheel_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        imu:
+        left_wheel_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        lidar:
+        lidar_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        lidar_body:
+        right_wheel_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        lidar_bottom:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        lidar_motorend:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_left:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel_right:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
+      Mass Properties:
+        Inertia: false
+        Mass: false
       Name: RobotModel
       TF Prefix: ""
       Update Interval: 0
@@ -113,23 +96,17 @@ Visualization Manager:
           Value: true
         camera:
           Value: true
-        caster:
+        caster_wheel_1:
           Value: true
-        imu:
+        left_wheel_1:
           Value: true
-        lidar:
+        lidar_1:
           Value: true
-        lidar_body:
-          Value: true
-        lidar_bottom:
-          Value: true
-        lidar_motorend:
+        map:
           Value: true
         odom:
           Value: true
-        wheel_left:
-          Value: true
-        wheel_right:
+        right_wheel_1:
           Value: true
       Marker Scale: 0.30000001192092896
       Name: TF
@@ -137,25 +114,19 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          camera:
-            {}
-          caster:
-            {}
-          imu:
-            {}
-          lidar_body:
-            lidar_bottom:
-              lidar:
+        map:
+          odom:
+            base_link:
+              camera:
                 {}
-            lidar_motorend:
-              {}
-          wheel_left:
-            {}
-          wheel_right:
-            {}
-        odom:
-          {}
+              caster_wheel_1:
+                {}
+              left_wheel_1:
+                {}
+              lidar_1:
+                {}
+              right_wheel_1:
+                {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -206,10 +177,31 @@ Visualization Manager:
         Reliability Policy: Best Effort
         Value: /camera/image_raw
       Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map
+      Update Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map_updates
+      Use Timestamp: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -244,36 +236,35 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 6.054063320159912
+      Distance: 28.85550308227539
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.5965061187744141
-        Y: -0.10617119073867798
-        Z: 0.5435945391654968
+        X: -0.05685717612504959
+        Y: -0.956239640712738
+        Z: 1.3824632167816162
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.11979828774929047
+      Pitch: 1.544796347618103
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.9135854244232178
+      Yaw: 3.158581256866455
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1020
+  Height: 752
   Hide Left Dock: false
   Hide Right Dock: false
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd000000010000000000000217000003a2fc0200000007fb000000100044006900730070006c006100790073010000003d0000025b000000c900fffffffb0000000a0049006d0061006700650000000283000000870000000000000000fb0000000a0049006d0061006700650100000194000001760000000000000000fb0000000a0049006d00610067006501000002d00000010b0000000000000000fb0000000c00430061006d00650072006100000002ba000001210000000000000000fb0000000a0049006d00610067006501000002eb000000f00000000000000000fb0000000a0049006d006100670065010000029e000001410000002800ffffff00000525000003a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
-  Width: 1858
-  X: 62
-  Y: 28
-
+  QMainWindow State: 000000ff00000000fd00000001000000000000015600000296fc0200000007fb000000100044006900730070006c006100790073010000003d00000296000000c900fffffffb0000000a0049006d0061006700650000000283000000870000002800fffffffb0000000a0049006d0061006700650100000194000001760000000000000000fb0000000a0049006d00610067006501000002d00000010b0000000000000000fb0000000c00430061006d00650072006100000002ba000001210000000000000000fb0000000a0049006d00610067006501000002eb000000f00000000000000000fb0000000a0049006d006100670065010000029e0000014100000000000000000000040f0000029600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Width: 1387
+  X: 660
+  Y: 118
